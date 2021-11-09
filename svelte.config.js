@@ -22,12 +22,7 @@ const config = {
 				}
 			}
 		},
-		adapter: adapter({
-			target: '#svelte',
-			pages: 'build',
-			assets: 'build',
-			fallback: null
-		})
+		adapter: adapter()
 	},
 
 	preprocess: preprocess({
