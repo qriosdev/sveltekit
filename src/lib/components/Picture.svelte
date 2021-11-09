@@ -20,36 +20,39 @@
 
 	let width, height;
 
-	const getImage = async () => {
-		try {
-			const request = await fetch(endpoint);
-			const result = await request.json();
-			const imageExists = result.webp.format;
-			const w = result.webp.width;
-			const h = result.webp.height;
-			const aspectRatio = w / h;
+	let image;
+	if (browser) {
+		const getImage = async () => {
+			try {
+				const request = await fetch(endpoint);
+				const result = await request.json();
+				const imageExists = result.webp.format;
+				const w = result.webp.width;
+				const h = result.webp.height;
+				const aspectRatio = w / h;
 
-			if (w > windowWidth) {
-				width = windowWidth;
-				height = width / aspectRatio;
-			} else {
-				width = w;
-				height = w / aspectRatio;
+				if (w > windowWidth) {
+					width = windowWidth;
+					height = width / aspectRatio;
+				} else {
+					width = w;
+					height = w / aspectRatio;
+				}
+
+				const placeholder = result.placeholder;
+
+				if (imageExists) {
+					return placeholder;
+				} else {
+					return;
+				}
+			} catch (error) {
+				console.log(error);
 			}
+		};
 
-			const placeholder = result.placeholder;
-
-			if (imageExists) {
-				return placeholder;
-			} else {
-				return;
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	let image = getImage(file);
+		image = getImage(file);
+	}
 </script>
 
 {#await image then placeholder}
