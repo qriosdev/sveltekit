@@ -1,0 +1,97 @@
+<slot />
+
+<style global lang="scss">
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		width: auto;
+		overflow-x: hidden;
+	}
+
+	body {
+		background-color: $dark;
+		font-family: $font-open-sans;
+		font-size: 16px;
+		line-height: 1.8;
+		color: $white;
+	}
+
+	button {
+		font-family: $font-open-sans;
+	}
+
+	section {
+		padding: calc(2rem + 5vw) 0;
+	}
+
+	.row {
+		max-width: 1080px;
+		width: 80%;
+		margin: 0 auto;
+		display: block;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: $font-quicksand;
+		margin-bottom: 0.5em;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	h1,
+	.h1 {
+		text-shadow: 0em 0em 0.4em rgba($white, 50%);
+	}
+
+	h1 {
+		@include fluid-typography(46, 64);
+	}
+
+	h2 {
+		@include fluid-typography(30, 36);
+	}
+
+	h3 {
+		@include fluid-typography(28, 30);
+	}
+
+	img {
+		max-width: 100%;
+		object-fit: contain;
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	ul,
+	ol {
+		margin-left: 0;
+		padding-left: 3rem;
+		margin-bottom: 1em;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	svg {
+		max-width: 500px;
+	}
+
+	pre {
+		white-space: pre-wrap; /* css-3 */
+		white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+		white-space: -pre-wrap; /* Opera 4-6 */
+		white-space: -o-pre-wrap; /* Opera 7 */
+		word-wrap: break-word; /* Internet Explorer 5.5+ */
+		text-align: left;
+	}
+</style>

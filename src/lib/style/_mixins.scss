@@ -1,0 +1,52 @@
+@use './variables' as *;
+@use 'sass:math';
+
+// FLUID FONTS
+@mixin fluid-typography($minFont, $maxFont) {
+	$maxLessOne: $desktop - 1;
+	$avg: math.div($maxFont + $minFont, 2);
+	font-size: #{$minFont}px;
+
+	@media (min-width: #{$mobile}px) and (max-width: #{$maxLessOne}px) {
+		/* Adds a fallback for unsupported browsers */
+		font-size: #{$avg}px;
+
+		font-size: calc(
+			#{$minFont}px + (#{$maxFont} - #{$minFont}) * (100vw - #{$mobile}px) /
+				(#{$desktop} - #{$mobile})
+		);
+	}
+
+	// SCREEN SIZES
+	@media (min-width: #{$desktop}px) {
+		font-size: #{$maxFont}px;
+	}
+}
+
+@mixin on-tablet {
+	@media (min-width: #{$tablet}px) {
+		@content;
+	}
+}
+
+@mixin on-desktop {
+	@media (min-width: #{$desktop}px) {
+		@content;
+	}
+}
+
+// BUTTON
+@mixin btn($background, $color) {
+	background-color: $background;
+	color: $color;
+	font-family: $font-open-sans;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0.5em 1.4em;
+	margin-bottom: 1.2rem;
+	border-radius: 1px;
+	transition: all 0.3s ease-in-out;
+}

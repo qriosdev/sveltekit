@@ -1,0 +1,108 @@
+@use 'sass:math';
+
+/*-----------------------------------------------------------
+VARIABLES
+-----------------------------------------------------------*/
+
+// COLORS
+$black: #000;
+$dark: #1a1a2e;
+$white: #fff;
+$grey: #565656;
+$purple: #321863;
+$green: #5dd2b4;
+
+// SCREEN SIZES
+$mobile: 360;
+$tablet: 768;
+$desktop: 1200;
+
+// FONTS
+$font-quicksand: 'Quicksand', sans-serif;
+$font-open-sans: 'Open Sans', sans-serif;
+
+/*-----------------------------------------------------------
+FONTS
+-----------------------------------------------------------*/
+
+/* quicksand-600 - latin */
+@font-face {
+	font-family: 'Quicksand';
+	font-style: normal;
+	font-weight: 600;
+	src: local(''), url('/fonts/quicksand-v24-latin-600.woff2') format('woff2'),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/quicksand-v24-latin-600.woff')
+			format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* quicksand-700 - latin */
+@font-face {
+	font-family: 'Quicksand';
+	font-style: normal;
+	font-weight: 700;
+	src: local(''), url('/fonts/quicksand-v24-latin-700.woff2') format('woff2'),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/quicksand-v24-latin-700.woff')
+			format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-regular - latin */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''), url('/fonts/open-sans-v23-latin-regular.woff2') format('woff2'),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/open-sans-v23-latin-regular.woff')
+			format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/*-----------------------------------------------------------
+MIXINS
+-----------------------------------------------------------*/
+
+// FLUID FONTS
+@mixin fluid-typography($minFont, $maxFont) {
+	$maxLessOne: $desktop - 1;
+	$avg: math.div($maxFont + $minFont, 2);
+	font-size: #{$minFont}px;
+
+	@media (min-width: #{$mobile}px) and (max-width: #{$maxLessOne}px) {
+		/* Adds a fallback for unsupported browsers */
+		font-size: #{$avg}px;
+
+		font-size: calc(
+			#{$minFont}px + (#{$maxFont} - #{$minFont}) * (100vw - #{$mobile}px) /
+				(#{$desktop} - #{$mobile})
+		);
+	}
+
+	// SCREEN SIZES
+	@media (min-width: #{$desktop}px) {
+		font-size: #{$maxFont}px;
+	}
+}
+
+@mixin on-tablet {
+	@media (min-width: #{$tablet}px) {
+		@content;
+	}
+}
+
+@mixin on-desktop {
+	@media (min-width: #{$desktop}px) {
+		@content;
+	}
+}
+
+// BUTTON
+@mixin btn($background, $color) {
+	background-color: $background;
+	color: $color;
+	font-family: $font-open-sans;
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0.8em 1.6em;
+	margin-bottom: 1.2rem;
+	border-radius: 1px;
+	transition: all 0.3s ease-in-out;
+}

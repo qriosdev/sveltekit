@@ -1,0 +1,71 @@
+<script context="module">
+	import { browser } from '$app/env';
+	let windowWidth;
+
+	if (browser) {
+		windowWidth = window.screen.width;
+	}
+</script>
+
+<script>
+	import lazyimage from '$act/lazyimage';
+
+	export let file;
+	export let alt = '';
+	const [name, ext] = file.split('.');
+	const webp = `/images/${name}.webp`;
+	const src = `/images/${file}`;
+
+	const hostname = import.meta.env.VITE_HOSTNAME || 'http://localhost:3000';
+	const endpoint = `${hostname}/api/${file}`;
+
+	let width, height;
+
+	const getImage = async () => {
+		try {
+			const request = await fetch(endpoint);
+			const result = await request.json();
+			const imageExists = result.webp.format;
+			const w = result.webp.width;
+			const h = result.webp.height;
+			const aspectRatio = w / h;
+
+			if (w > windowWidth) {
+				width = windowWidth;
+				height = width / aspectRatio;
+			} else {
+				width = w;
+				height = w / aspectRatio;
+			}
+
+			const placeholder = result.placeholder;
+
+			if (imageExists) {
+				return placeholder;
+			} else {
+				return;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	let image = getImage(file);
+</script>
+
+{#await image then placeholder}
+	{#if placeholder}
+		<picture>
+			<source data-srcset={webp} srcset={placeholder} use:lazyimage type="image/webp" />
+			<img data-src={src} src={placeholder} use:lazyimage {width} {height} {alt} />
+		</picture>
+	{:else}
+		{file}
+	{/if}
+{/await}
+
+<style lang="scss">
+	img {
+		display: block;
+	}
+</style>
