@@ -27,8 +27,7 @@ const getRoutes = (directory) => {
 
 getRoutes(dir);
 
-const sitemap = `
-<?xml version="1.0" encoding="UTF-8"?>
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
@@ -53,3 +52,5 @@ const sitemap = `
 
 const sitemapPath = path.join(dir, 'sitemap.xml');
 fs.writeFileSync(sitemapPath, sitemap);
+
+console.log(hostname);

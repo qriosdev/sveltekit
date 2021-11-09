@@ -9,6 +9,7 @@
 
 <script>
 	import lazyimage from '$act/lazyimage';
+	import { ev } from '$util/ev';
 
 	export let file;
 	export let alt = '';
@@ -16,7 +17,7 @@
 	const webp = `/images/${name}.webp`;
 	const src = `/images/${file}`;
 
-	const hostname = import.meta.env.VITE_HOSTNAME || 'http://localhost:3000';
+	const hostname = ev.hostname;
 	const endpoint = `${hostname}/api/${file}`;
 
 	let width, height;
