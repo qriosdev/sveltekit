@@ -9,7 +9,6 @@
 
 <script>
 	import lazyimage from '$act/lazyimage';
-	// import { ev } from '$util/ev';
 
 	export let file;
 	export let alt = '';
@@ -17,7 +16,6 @@
 	const webp = `/images/${name}.webp`;
 	const src = `/images/${file}`;
 
-	// const hostname = import.meta.env.VITE_HOSTNAME || 'http://localhost:3000';
 	const endpoint = `/api/${file}`;
 
 	let width, height;
@@ -55,14 +53,10 @@
 </script>
 
 {#await image then placeholder}
-	{#if placeholder}
-		<picture>
-			<source data-srcset={webp} srcset={placeholder} use:lazyimage type="image/webp" />
-			<img data-src={src} src={placeholder} use:lazyimage {width} {height} {alt} />
-		</picture>
-	{:else}
-		{file}
-	{/if}
+	<picture>
+		<source data-srcset={webp} srcset={placeholder} use:lazyimage type="image/webp" />
+		<img data-src={src} src={placeholder} use:lazyimage {width} {height} {alt} />
+	</picture>
 {/await}
 
 <style lang="scss">
