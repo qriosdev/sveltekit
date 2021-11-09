@@ -8,6 +8,7 @@
 </script>
 
 <script>
+	import { onMount } from 'svelte';
 	import lazyimage from '$act/lazyimage';
 
 	export let file;
@@ -19,9 +20,9 @@
 	const endpoint = `/api/${file}`;
 
 	let width, height;
-
 	let image;
-	if (browser) {
+
+	onMount(() => {
 		const getImage = async () => {
 			try {
 				const request = await fetch(endpoint);
@@ -52,7 +53,7 @@
 		};
 
 		image = getImage(file);
-	}
+	});
 </script>
 
 {#await image then placeholder}
