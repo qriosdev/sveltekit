@@ -11,6 +11,7 @@
 		"postbuild": "node --experimental-json-modules ./sitemap.js"
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-netlify": "^1.0.0-next.35",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
 		"@sveltejs/kit": "next",
 		"eslint": "^7.32.0",
