@@ -17,10 +17,20 @@
 	const webp = `/images/${name}.webp`;
 	const src = `/images/${file}`;
 
-	const width = images[`${name}`].width;
-	const height = images[`${name}`].height;
-	const placeholder = images[`${name}`].dataURI;
-	console.log(placeholder);
+	let width, height;
+
+	let w = images[`${name}`].width;
+	let h = images[`${name}`].height;
+	let aspectRatio = w / h;
+	let placeholder = images[`${name}`].dataURI;
+
+	if (w > windowWidth) {
+		width = windowWidth;
+		height = width / aspectRatio;
+	} else {
+		width = w;
+		height = w / aspectRatio;
+	}
 </script>
 
 <picture>
