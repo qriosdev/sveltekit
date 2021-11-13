@@ -1,6 +1,10 @@
 import viewport from '$act/viewport';
+// import { getWebp } from '$util/webp';
 
 export default function lazyimage(element) {
+	// const file = element.dataset.file;
+	// const img = getWebp(file);
+	// console.log(img);
 	const viewportActionMethods = viewport(element);
 	element.addEventListener('enterViewport', enterViewport);
 	window.addEventListener('resize', removeSize);

@@ -3,8 +3,8 @@
 	"version": "0.0.1",
 	"url": "https://sveltekit-2c9.pages.dev",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
+		"dev": "node ./generateImages.js & svelte-kit dev",
+		"build": "node ./generateImages.js & svelte-kit build",
 		"preview": "svelte-kit preview",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",

@@ -1,5 +1,6 @@
 <script context="module">
 	import { browser } from '$app/env';
+	import { images } from '$util/imgData';
 	let windowWidth;
 
 	if (browser) {
@@ -8,58 +9,30 @@
 </script>
 
 <script>
-	import { onMount } from 'svelte';
 	import lazyimage from '$act/lazyimage';
 
 	export let file;
 	export let alt = '';
-	const [name, ext] = file.split('.');
+	const [name] = file.split('.');
 	const webp = `/images/${name}.webp`;
 	const src = `/images/${file}`;
 
-	const endpoint = `/api/${file}`;
-
-	let width, height;
-	let image;
-
-	const getImage = async () => {
-		try {
-			const request = await fetch(endpoint);
-			const result = await request.json();
-			const imageExists = result.webp.format;
-			const w = result.webp.width;
-			const h = result.webp.height;
-			const aspectRatio = w / h;
-
-			if (w > windowWidth) {
-				width = windowWidth;
-				height = width / aspectRatio;
-			} else {
-				width = w;
-				height = w / aspectRatio;
-			}
-
-			const placeholder = result.placeholder;
-
-			if (imageExists) {
-				return placeholder;
-			} else {
-				return;
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	image = getImage(file);
+	const width = images[`${name}`].width;
+	const height = images[`${name}`].height;
+	const placeholder = images[`${name}`].dataURI;
+	console.log(placeholder);
 </script>
 
-{#await image then placeholder}
-	<picture>
-		<source data-srcset={webp} srcset={placeholder} use:lazyimage type="image/webp" />
-		<img data-src={src} src={placeholder} use:lazyimage {width} {height} {alt} />
-	</picture>
-{/await}
+<picture>
+	<source
+		data-file={file}
+		data-srcset={webp}
+		srcset={placeholder}
+		use:lazyimage
+		type="image/webp"
+	/>
+	<img data-file={file} data-src={src} src={placeholder} use:lazyimage {width} {height} {alt} />
+</picture>
 
 <style lang="scss">
 	img {
