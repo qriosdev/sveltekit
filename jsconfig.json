@@ -9,7 +9,9 @@
 			"$util": ["src/lib/utils"],
 			"$util/*": ["src/lib/utils/*"],
 			"$act": ["src/lib/actions"],
-			"$act/*": ["src/lib/actions/*"]
+			"$act/*": ["src/lib/actions/*"],
+			"$data": ["src/lib/data"],
+			"$data/*": ["src/lib/data/*"]
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]

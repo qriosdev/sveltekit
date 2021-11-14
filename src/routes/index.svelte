@@ -2,6 +2,11 @@
 	import Picture from '$comp/Picture.svelte';
 </script>
 
+<svelte:head>
+	<title>SvelteKit Playground</title>
+	<meta name="description" content="Testing SvelteKit" />
+</svelte:head>
+
 <h1>SvelteKit Playground</h1>
 
 <!-- <h2>Direct Image</h2>

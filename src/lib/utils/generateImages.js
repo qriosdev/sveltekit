@@ -6,7 +6,7 @@ const dir = path.resolve();
 const imgPath = '/static/images/';
 const folder = path.join(dir, imgPath);
 
-const imgDataPath = path.join(dir, '/src/lib/utils/imgData.js');
+const imgDataPath = path.join(dir, '/src/lib/data/imgData.js');
 
 const images = {};
 const files = fs.readdirSync(folder);
@@ -45,7 +45,7 @@ const generateImages = async (folder) => {
 					dataURI
 				};
 
-				images[`${name}`] = data;
+				images[name] = data;
 				const imagesData = JSON.stringify(images, null, 4);
 
 				const imgData = `export const images = ${imagesData}`;

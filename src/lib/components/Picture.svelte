@@ -1,6 +1,6 @@
 <script context="module">
 	import { browser } from '$app/env';
-	import { images } from '$util/imgData';
+	import { images } from '$data/imgData';
 	let windowWidth;
 
 	if (browser) {
@@ -19,10 +19,10 @@
 
 	let width, height;
 
-	let w = images[`${name}`].width;
-	let h = images[`${name}`].height;
+	let w = images[name].width;
+	let h = images[name].height;
 	let aspectRatio = w / h;
-	let placeholder = images[`${name}`].dataURI;
+	let placeholder = images[name].dataURI;
 
 	if (w > windowWidth) {
 		width = windowWidth;
@@ -47,5 +47,6 @@
 <style lang="scss">
 	img {
 		display: block;
+		border: 1rem solid $black;
 	}
 </style>
