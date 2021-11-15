@@ -13,10 +13,6 @@
 <slot />
 
 <style global lang="scss">
-	/*-----------------------------------------------------------
-FONTS
------------------------------------------------------------*/
-
 	/* quicksand-600 - latin */
 	@font-face {
 		font-family: 'Quicksand';
@@ -57,11 +53,15 @@ FONTS
 		overflow-x: hidden;
 	}
 
+	html {
+		font-size: 62.5%;
+	}
+
 	body {
 		background-color: $dark;
 		font-family: $font-open-sans;
-		font-size: 16px;
-		line-height: 1.8;
+		font-size: 1.6rem;
+		line-height: 1.7;
 		color: $white;
 	}
 

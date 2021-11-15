@@ -1,10 +1,14 @@
 <script>
 	import Picture from '$comp/Picture.svelte';
+	import Metas from '$comp/Metas.svelte';
+
+	let title = 'SvelteKit Playground';
+	let description = 'Testing SvelteKit';
+	let image = 'sveltekit.png';
 </script>
 
 <svelte:head>
-	<title>SvelteKit Playground</title>
-	<meta name="description" content="Testing SvelteKit" />
+	<Metas {title} {description} {image} />
 </svelte:head>
 
 <h1>SvelteKit Playground</h1>
