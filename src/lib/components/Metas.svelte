@@ -1,9 +1,10 @@
 <script>
-	export let title, description, image, host;
-	const hostname = process.env.VITE_HOSTNAME || 'http://localhost:3000';
+	import { ev } from '$data/ev';
+	export let title, description, image;
+	// const hostname = process.env.VITE_HOSTNAME || 'http://localhost:3000';
+	const hostname = ev.hostname;
 	const siteName = import.meta.env.VITE_SITENAME || title;
 	const metaImage = `${hostname}/images/${image}`;
-	console.log(host);
 </script>
 
 <title>{title}</title>
