@@ -5,6 +5,8 @@
 	let title = 'SvelteKit Playground';
 	let description = 'Testing SvelteKit';
 	let image = 'sveltekit.png';
+
+	let url = import.meta.env.VITE_HOSTNAME || '';
 </script>
 
 <svelte:head>
@@ -12,6 +14,9 @@
 </svelte:head>
 
 <h1>SvelteKit Playground</h1>
+
+<h2>URL:</h2>
+{url}
 
 <!-- <h2>Direct Image</h2>
 <img src={image} alt="svelte" /> -->

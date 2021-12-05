@@ -1,8 +1,8 @@
 <script>
-	import { ev } from '$data/ev';
+	// import { ev } from '$data/ev';
 	export let title, description, image;
-	// const hostname = process.env.VITE_HOSTNAME || 'http://localhost:3000';
-	const hostname = ev.hostname;
+
+	const hostname = import.meta.env.VITE_HOSTNAME || '';
 	const siteName = import.meta.env.VITE_SITENAME || title;
 	const metaImage = `${hostname}/images/${image}`;
 </script>
