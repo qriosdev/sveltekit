@@ -1,5 +1,6 @@
 <script context="module">
 	import { fonts } from '$data/fontData';
+	import PWA from '$comp/PWA.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +10,8 @@
 		{/if}
 	{/each}
 </svelte:head>
+
+<PWA />
 
 <slot />
 
