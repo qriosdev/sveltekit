@@ -6,7 +6,7 @@
 	let description = 'Testing SvelteKit';
 	let image = 'sveltekit.png';
 
-	let url = import.meta.env.VITE_HOSTNAME || '';
+	let url = import.meta.env ? import.meta.env.VITE_HOSTNAME : '';
 </script>
 
 <svelte:head>
@@ -15,13 +15,8 @@
 
 <h1>SvelteKit Playground</h1>
 
-<h2>URL:</h2>
+<h2>VITE_HOSTNAME:</h2>
 {url}
-
-<!-- <h2>Direct Image</h2>
-<img src={image} alt="svelte" /> -->
-
-<h2>Dynamic Picture</h2>
 
 <div style="height: 120vh; background-color: orange;" />
 <Picture file="svelte.png" alt="svelte" />
