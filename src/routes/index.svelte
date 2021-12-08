@@ -8,7 +8,6 @@
 
 	let url = import.meta.env ? import.meta.env.VITE_HOSTNAME : '';
 	let url2 = process.env['VITE_HOSTNAME'] || '';
-	let url3 = process.env.VITE_HOSTNAME || '';
 </script>
 
 <svelte:head>
@@ -20,8 +19,6 @@
 URL1: {url}
 <br />
 URL2: {url2}
-<br />
-URL3: {url3}
 
 <div style="height: 120vh; background-color: orange;" />
 <Picture file="svelte.png" alt="svelte" />
