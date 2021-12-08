@@ -13,7 +13,7 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: adapter(),
-		trailingSlash: 'ignore',
+		// trailingSlash: 'ignore',
 		vite: {
 			plugins: [imagetools({ force: true })],
 
