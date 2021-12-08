@@ -2,7 +2,7 @@ import preprocess from 'svelte-preprocess';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { imagetools } from 'vite-imagetools';
-import adapter from '@sveltejs/adapter-static';
+import cloudflare from '@sveltejs/adapter-cloudflare';
 
 const filePath = dirname(fileURLToPath(import.meta.url));
 const sassPath = `${filePath}/src/lib/style/`;
@@ -23,7 +23,7 @@ const config = {
 				}
 			}
 		},
-		adapter: adapter()
+		adapter: cloudflare({})
 	},
 
 	preprocess: preprocess({
