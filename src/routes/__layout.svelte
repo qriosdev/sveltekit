@@ -1,7 +1,6 @@
 <script context="module">
 	import { fonts } from '$data/fontData';
 	import PWA from '$comp/PWA.svelte';
-	export const trailingSlash = 'always';
 </script>
 
 <svelte:head>
