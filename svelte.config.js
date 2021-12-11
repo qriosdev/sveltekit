@@ -3,7 +3,7 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { imagetools } from 'vite-imagetools';
 import adapter from '@sveltejs/adapter-static';
-// import adapter from '@sveltejs/adapter-netlify';
+import { mdsvex } from 'mdsvex';
 
 const filePath = dirname(fileURLToPath(import.meta.url));
 const sassPath = `${filePath}/src/lib/style/`;
@@ -28,11 +28,16 @@ const config = {
 		}
 	},
 
-	preprocess: preprocess({
-		scss: {
-			prependData: `@use '${sassPath}global' as *;`
-		}
-	})
+	preprocess: [
+		preprocess({
+			scss: {
+				prependData: `@use '${sassPath}global' as *;`
+			}
+		}),
+		mdsvex({ extensions: ['.md', '.svx'] })
+	],
+
+	extensions: ['.svelte', '.md']
 };
 
 export default config;

@@ -10,7 +10,7 @@ const files = fs.readdirSync(folder);
 
 export const getFonts = () => {
 	for (const file of files) {
-		const font = `fonts/${file}`;
+		const font = `/fonts/${file}`;
 		list.push(font);
 
 		const fontFiles = JSON.stringify(list, null, 4);

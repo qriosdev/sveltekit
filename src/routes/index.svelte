@@ -14,9 +14,9 @@
 </svelte:head>
 
 <h1>SvelteKit Playground</h1>
-<a href="/contact/">Contact</a>
+<a href="/contact">Contact</a>
 <br />
-<a href="/blog/">Blog</a>
+<a href="/blog">Blog</a>
 <br />
 Show env var VITE_HOSTNAME: {url}
 
