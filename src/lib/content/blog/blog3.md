@@ -1,10 +1,10 @@
 ---
-title: Article Two
-description: Description Two
+title: Article Three
+description: Description Three
 image: svelte.png
 ---
 
-# Getting started
+# Blog Post #3
 
 The easiest way to start building a SvelteKit app is to run npm init:
 

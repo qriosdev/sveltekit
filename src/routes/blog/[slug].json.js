@@ -1,4 +1,4 @@
-import { getContent } from '$util/blog';
+import { getContent, folder } from '$util/blog';
 
 export async function get({ params }) {
 	const { slug } = params;
@@ -6,6 +6,9 @@ export async function get({ params }) {
 	const { metas } = content;
 
 	return {
-		body: JSON.stringify(metas)
+		body: {
+			folder,
+			metas
+		}
 	};
 }

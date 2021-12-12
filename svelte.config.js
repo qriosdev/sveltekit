@@ -4,6 +4,9 @@ import { fileURLToPath } from 'url';
 import { imagetools } from 'vite-imagetools';
 import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
+import { routes } from './src/lib/data/routesData.js';
+
+console.log(routes);
 
 const filePath = dirname(fileURLToPath(import.meta.url));
 const sassPath = `${filePath}/src/lib/style/`;
@@ -37,7 +40,14 @@ const config = {
 		mdsvex({ extensions: ['.md', '.svx'] })
 	],
 
-	extensions: ['.svelte', '.md']
+	extensions: ['.svelte', '.md'],
+
+	prerender: {
+		crawl: true,
+		enabled: true,
+		force: true,
+		pages: [...routes]
+	}
 };
 
 export default config;

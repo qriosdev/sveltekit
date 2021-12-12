@@ -3,17 +3,18 @@
 		const { path } = page;
 		const { slug } = page.params;
 		const url = `${path}.json`;
-		const getPost = await fetch(url);
+		const getContentData = await fetch(url);
 
-		if (getPost.ok) {
-			const content = await getPost.json();
-			const { title, description, image } = content;
+		if (getContentData.ok) {
+			const contentData = await getContentData.json();
+			const { title, description, image } = contentData.metas;
+			const content = (await import(`../../lib/content/blog/${slug}.md`)).default;
 			return {
 				props: {
 					title,
 					description,
 					image,
-					page: (await import(`../../lib/content/blog/${slug}.md`)).default
+					content
 				}
 			};
 		}
@@ -21,12 +22,17 @@
 </script>
 
 <script>
-	export let title, description, image, page;
+	import Metas from '$comp/Metas.svelte';
+	export let title, description, image, content;
 </script>
+
+<svelte:head>
+	<Metas {title} {description} {image} />
+</svelte:head>
 
 <h1>TEST</h1>
 
 {title}
 {description}
 {image}
-<svelte:component this={page} />
+<svelte:component this={content} />
