@@ -16,7 +16,10 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: adapter(),
-		// trailingSlash: 'ignore',
+		trailingSlash: 'ignore',
+		prerender: {
+			entries: [...routes]
+		},
 		vite: {
 			plugins: [imagetools({ force: true })],
 
@@ -40,14 +43,7 @@ const config = {
 		mdsvex({ extensions: ['.md', '.svx'] })
 	],
 
-	extensions: ['.svelte', '.md'],
-
-	prerender: {
-		crawl: true,
-		enabled: true,
-		force: true,
-		pages: [...routes]
-	}
+	extensions: ['.svelte', '.md']
 };
 
 export default config;
