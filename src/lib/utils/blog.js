@@ -3,8 +3,7 @@ import fs from 'fs';
 import { compile } from 'mdsvex';
 
 const dir = path.resolve();
-export const folder = path.join(dir, '/src/lib/content/blog');
-// const blogs = fs.readdirSync(folder).map((file) => file.replace('.md', ''));
+const folder = path.join(dir, '/src/lib/content/blog');
 
 export const getContent = async (slug) => {
 	const contentPath = path.join(folder, `${slug}.md`);

@@ -1,4 +1,4 @@
-import { getContent, folder } from '$util/blog';
+import { getContent } from '$util/blog';
 
 export async function get({ params }) {
 	const { slug } = params;
@@ -7,7 +7,6 @@ export async function get({ params }) {
 
 	return {
 		body: {
-			folder,
 			metas
 		}
 	};
