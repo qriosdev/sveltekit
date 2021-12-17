@@ -8,7 +8,7 @@ const blogFolder = path.join(dir, '/src/lib/content/blog');
 const destination = path.join(dir, '/src/lib/data/routesData.js');
 
 fs.readdirSync(blogFolder).map((file) => {
-	const route = `/blog/${file.replace('.md', '')}`;
+	const route = `/blog/${file.replace('.md', '')}/`;
 	routes.push(route);
 });
 

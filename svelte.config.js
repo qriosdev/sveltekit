@@ -6,8 +6,6 @@ import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
 import { routes } from './src/lib/data/routesData.js';
 
-console.log(routes);
-
 const filePath = dirname(fileURLToPath(import.meta.url));
 const sassPath = `${filePath}/src/lib/style/`;
 
@@ -16,7 +14,7 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: adapter(),
-		trailingSlash: 'ignore',
+		// trailingSlash: 'ignore',
 		prerender: {
 			entries: [...routes]
 		},
