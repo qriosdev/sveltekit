@@ -8,6 +8,3 @@
 <p>
 	<a href="/blog/blog3">Blog Three</a>
 </p>
-<p>
-	<a href="/blog/blog4">Blog Four</a>
-</p>
