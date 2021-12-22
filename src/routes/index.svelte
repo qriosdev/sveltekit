@@ -7,7 +7,6 @@
 	let image = 'sveltekit.png';
 
 	let url = import.meta.env ? import.meta.env.VITE_HOSTNAME : '';
-	let url2 = process.env.VITE_HOSTNAME || '';
 </script>
 
 <svelte:head>
@@ -20,7 +19,6 @@
 <a href="/blog/">Blog</a>
 <br />
 Show env var VITE_HOSTNAME via Vite: {url}
-Show env var VITE_HOSTNAME: {url2}
 
 <div style="height: 120vh; background-color: orange;" />
 <Picture file="svelte.png" alt="svelte" />
