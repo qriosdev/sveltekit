@@ -17,6 +17,7 @@ const config = {
 			fallback: '404.html'
 		}),
 		// trailingSlash: 'ignore',
+		ssr: false,
 		prerender: {
 			entries: [...routes]
 		},
