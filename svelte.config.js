@@ -14,7 +14,7 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: adapter({
-			fallback: '404.html'
+			// fallback: '404.html' // causes 404 error on all routes in production
 		}),
 		// trailingSlash: 'ignore',
 		// ssr: false, // don't use this as sveltekit won't generate json endpoints
