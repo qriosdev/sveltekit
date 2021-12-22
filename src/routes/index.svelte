@@ -20,7 +20,7 @@
 <br />
 Show env var VITE_HOSTNAME via Vite: {url}
 
-<div style="height: 120vh; background-color: orange;" />
+<div style="height: 100vh; background-color: orange;" />
 <Picture file="svelte.png" alt="svelte" />
 
 <div style="height: 50vh; background-color: grey;" />
