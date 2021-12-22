@@ -13,9 +13,11 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
-		adapter: adapter(),
+		adapter: adapter({
+			fallback: '404.html'
+		}),
 		// trailingSlash: 'ignore',
-		// ssr: false,
+		// ssr: false, // don't use this as sveltekit won't generate json endpoints
 		prerender: {
 			entries: [...routes]
 		},
