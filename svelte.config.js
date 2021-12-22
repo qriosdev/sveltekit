@@ -15,7 +15,7 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 		// trailingSlash: 'ignore',
-		ssr: false,
+		// ssr: false,
 		prerender: {
 			entries: [...routes]
 		},
