@@ -10,10 +10,11 @@ export async function onRequest(context) {
 	} = context;
 
 	const envViteHost = env.VITE_HOSTNAME;
+	const envViteTest = env.VITE_TEST;
 	const envTest = env.TEST_ENV;
 	const envHost = env.HOSTNAME;
 
-	const res = `VITE_HOSTNAME: ${envViteHost} || TEST_ENV: ${envTest} || HOSTNAME: ${envHost}`;
+	const res = `VITE_HOSTNAME: ${envViteHost} || VITE_TEST: ${envViteTest} || TEST_ENV: ${envTest} || HOSTNAME: ${envHost}`;
 
 	return new Response(res);
 }
