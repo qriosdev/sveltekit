@@ -11,7 +11,7 @@ export async function onRequest(context) {
 
 	const envViteHost = env.VITE_HOSTNAME;
 	const envTest = env.TEST_ENV;
-	const envHost = env.TEST_ENV;
+	const envHost = env.HOSTNAME;
 
 	const res = `VITE_HOSTNAME: ${envViteHost} || TEST_ENV: ${envTest} || HOSTNAME: ${envHost}`;
 

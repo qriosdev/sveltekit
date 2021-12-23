@@ -6,8 +6,8 @@
 	let description = 'Testing SvelteKit';
 	let image = 'sveltekit.png';
 
-	let url = import.meta.env ? import.meta.env.VITE_HOSTNAME : '';
-	let url2 = import.meta.env ? import.meta.env.HOSTNAME : '';
+	let url = import.meta.env.VITE_HOSTNAME || '';
+	let url2 = import.meta.env.HOSTNAME || '';
 </script>
 
 <svelte:head>
