@@ -9,11 +9,11 @@ export async function onRequest(context) {
 		data // arbitrary space for passing data between middlewares
 	} = context;
 
-	const envHost = env.VITE_HOSTNAME;
+	const envViteHost = env.VITE_HOSTNAME;
 	const envTest = env.TEST_ENV;
+	const envHost = env.TEST_ENV;
 
-	const res = `VITE_HOSTNAME: ${envHost} 
-				TEST_ENV: ${envTest}`;
+	const res = `VITE_HOSTNAME: ${envViteHost} || TEST_ENV: ${envTest} || HOSTNAME: ${envHost}`;
 
 	return new Response(res);
 }
