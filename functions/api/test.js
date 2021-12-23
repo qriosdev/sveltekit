@@ -9,7 +9,9 @@ export async function onRequest(context) {
 		data // arbitrary space for passing data between middlewares
 	} = context;
 
-	const res = `VITE_HOSTNAME: ${VITE_HOSTNAME}`;
+	const envTest = env.VITE_HOSTNAME;
+
+	const res = `VITE_HOSTNAME: ${envTest}`;
 
 	return new Response(res);
 }
