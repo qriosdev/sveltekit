@@ -10,6 +10,9 @@
 	let url2 = import.meta.env['VITE_HOSTNAME'] || '';
 	let url3 = import.meta.env.HOSTNAME || '';
 	let url4 = import.meta.env['HOSTNAME'] || '';
+	let url5 = import.meta.env.VITE_SITENAME || '';
+	let url6 = import.meta.env.VITE_TEST || '';
+	let url7 = import.meta.env['VITE_TEST'] || '';
 </script>
 
 <svelte:head>
@@ -21,7 +24,15 @@
 <br />
 <a href="/blog/">Blog</a>
 <br />
-VITE_HOSTNAME: {url} || ['VITE_HOSTNAME']: {url2} || HOSTNAME: {url3} || ['HOSTNAME']: {url4}
+<ul>
+	<li>VITE_HOSTNAME: {url}</li>
+	<li>['VITE_HOSTNAME']: {url2}</li>
+	<li>HOSTNAME: {url3}</li>
+	<li>['HOSTNAME']: {url4}</li>
+	<li>VITE_SITENAME: {url5}</li>
+	<li>VITE_TEST: {url6}</li>
+	<li>['VITE_TEST']: {url7}</li>
+</ul>
 
 <div style="height: 100vh; background-color: orange;" />
 <Picture file="svelte.png" alt="svelte" />
